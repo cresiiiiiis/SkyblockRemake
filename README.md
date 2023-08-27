@@ -1,21 +1,23 @@
-# Crackpixel Skyblock
-A comprehensive recode of the core skyblock sandbox plugin.
-Credits to **@cloggedbrain, @Kotliin, @DrRubik**
+<h1 align="center" id="title">Crackpixel Skyblock</h1>
 
-<div id="top">
-<p align="center">
-  <a href="https://github.com/LuffyFCB/CPSkyblock/releases/" target="_blank">
-    <img alt="downloads" src="https://img.shields.io/github/v/release/LuffyFCB/CPSkyblock?color=F&style=flat-square" />
-  </a>
-  <a href="https://github.com/LuffyFCB/CPSkyblock/releases/" target="_blank">
-    <img alt="downloads" src="https://img.shields.io/github/downloads/LuffyFCB/CPSkyblock?/total?color=4166f5&style=flat-square" />
-  </a>
-  <a href="https://github.com/LuffyFCB/CPSkyblock/blob/main/LICENSE" target="_blank">
-    <img alt="license" src="https://img.shields.io/github/license/LuffyFCB/CPSkyblock?color=4166f5&style=flat-square" />
-  </a>
-</p>
-</div>
-<div align="center">
-<h3><b>Please dont use it comercialy!</b></h3>
+<p align="center"><img src="https://i.ibb.co/fX9MCj0/download.jpg" alt="project-image"></p>
 
+<p id="description">A comprehensive core for the Replica Server of Hypixel **Crackpixel**</p>
 
+<h2>Project Screenshots:</h2>
+
+<img src="https://i.ibb.co/0nyq93b/image.png" alt="project-screenshot" width="166" height="166/">
+
+<img src="https://i.ibb.co/RcgZWNj/image.png" alt="project-screenshot" width="354" height="16/">
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Items!
+*   Armors!
+*   Mobs!
+*   Working Scoreboards!
+*   We are not gonna stop!!
