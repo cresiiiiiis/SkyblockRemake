@@ -36,8 +36,8 @@ public class AOTE implements Listener {
         aoteMeta.setDisplayName(ChatColor.BLUE + "Aspect of The End");
 
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "Damage: " + ChatColor.RED + "+100"); // Closing the add call
-        lore.add(ChatColor.GRAY + "Strength: " + ChatColor.RED + "+100"); // Closing the add call
+        lore.add(ChatColor.GRAY + "Damage: " + ChatColor.RED + "+"); // Closing the add call
+        lore.add(ChatColor.GRAY + "Strength: " + ChatColor.RED + "+"); // Closing the add call
         lore.add(ChatColor.GOLD + "Ability: Instant Transmission" + ChatColor.YELLOW + ChatColor.BOLD + " RIGHT CLICK"); // Closing the add call
         lore.add(ChatColor.GRAY + "Teleport " + ChatColor.GREEN + "8 blocks " + ChatColor.GRAY + "ahead of you and gain "
                 + ChatColor.GREEN + "+50" + ChatColor.WHITE + "⭐ Speed for"); // Closing the add call

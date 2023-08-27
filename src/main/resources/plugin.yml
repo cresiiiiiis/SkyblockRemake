@@ -13,6 +13,9 @@ commands:
     description: /itemsgui
   slayers:
     description: Attempt of Slayer Remake from hypixel.net
-  worldgen:
-    description: Test
-    usage: /<command>
+  worldtest:
+    description: Test (WIP)
+    usage: /worldtest
+  statstest:
+    description: Raw Stat Output (WIP)
+    usage: /statstest
