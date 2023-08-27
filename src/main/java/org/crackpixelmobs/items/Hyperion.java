@@ -34,21 +34,20 @@ public class Hyperion implements Listener {
         hyperionMeta.setDisplayName(ChatColor.GOLD + "Hyperion");
 
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "Damage:" + ChatColor.RED + " +360"); // Update base damage
-        lore.add(ChatColor.GRAY + "Strength:" + ChatColor.RED + " +150");
-        lore.add(ChatColor.GRAY + "Intelligence: " + ChatColor.GREEN + "+350");
+        lore.add(ChatColor.GRAY + "Damage:" + ChatColor.RED+" +360"); // Update base damage
+        lore.add(ChatColor.GRAY + "Strength:" + ChatColor.RED+" +150");
+        lore.add(ChatColor.GRAY + "Intelligence: " + ChatColor.GREEN + "+350" );
         lore.add(ChatColor.GRAY + "Ferocity: " + ChatColor.GREEN + "+30");
         lore.add("");
-        lore.add(ChatColor.GRAY + "Deals +" + ChatColor.GREEN + "50%" + ChatColor.GRAY + " damage to");
+        lore.add(ChatColor.GRAY + "Deals +"+ ChatColor.GREEN+"50%"+ChatColor.GRAY+" damage to");
         lore.add(ChatColor.GRAY + "Withers. Grant" + ChatColor.RED + " +1 Damage");
-        lore.add(ChatColor.GRAY + "+2" + ChatColor.AQUA + " Intelligence per Catacombs level");
+        lore.add(ChatColor.GRAY + "+2"+ ChatColor.AQUA + " Intelligence per Catacombs level");
         lore.add(ChatColor.GRAY + "Your Catacombs level:" + ChatColor.RED + " Not Implemented");
         lore.add(ChatColor.DARK_GRAY + "Cooldown " + ChatColor.GREEN + "10s");
         lore.add("");
         lore.add(ChatColor.DARK_GRAY + "This item can be reforged");
-        lore.add("");
-        Rarity rarity = Rarity.LEGENDARY;
-        lore.add(rarity.getRarityColor() + "" + ChatColor.BOLD + "" + rarity.getName());
+
+
 
         hyperionMeta.setLore(lore);
         hyperionSword.setItemMeta(hyperionMeta);
@@ -62,27 +61,25 @@ public class Hyperion implements Listener {
         if (heldItem != null && heldItem.isSimilar(createHyperion()) &&
                 event.getAction().toString().contains("RIGHT")) {
 
-            int teleportDistance = 10; // Adjust the teleport distance as needed
-
-            // Store the player's initial location
-            player.getWorld().createExplosion(player.getLocation(), 0.0F, false, false, player); // Create a minimal explosion
-            player.setNoDamageTicks(100); // Disable damage temporarily
+            int teleportDistance = 5; // Adjust the teleport distance as needed
+            double baseDamage = 200489; // Adjust the base damage as needed
 
             // Teleport the player
             player.teleport(player.getLocation().add(player.getLocation().getDirection().normalize().multiply(teleportDistance)));
 
             // Play explosion effect and sound
+            player.getWorld().createExplosion(player.getLocation(), 4.0F, false, false); // No fire, no block damage
             player.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, player.getLocation(), 50);
             player.getWorld().playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);
 
-            // Deal damage to zombies hit by the explosion
+            // Deal damage to mobs hit by the explosion
             List<Entity> nearbyEntities = player.getNearbyEntities(5, 5, 5);
             Random random = new Random();
             for (Entity entity : nearbyEntities) {
                 if (entity instanceof Zombie) {
                     double damageMultiplier = random.nextDouble() * (2.0 - 1.0) + 1.0;
-                    int damage = (int) (200489 * damageMultiplier); // Adjust the base damage as needed
-                    ((Zombie) entity).damage(damage, player);
+                    int damage = (int) (baseDamage * damageMultiplier);
+                    ((Zombie) entity).damage(damage);
                     player.sendMessage(ChatColor.GRAY + "You dealt " + ChatColor.RED + damage + ChatColor.GRAY + " damage");
                 }
             }

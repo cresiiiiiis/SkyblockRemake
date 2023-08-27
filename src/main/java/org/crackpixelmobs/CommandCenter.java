@@ -1,7 +1,6 @@
 package org.crackpixelmobs;
 
-import org.bukkit.Bukkit;
-import org.bukkit.GameRule;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,7 +22,7 @@ public class CommandCenter extends JavaPlugin implements CommandExecutor {
     private Slayers slayers;
     private Boomerang boomerang; // Add Boomerang reference
 
-    private WorldGen worldGen;
+    private CustomScoreboard customScoreboard;
 
     @Override
     public void onEnable() {
@@ -47,6 +46,7 @@ public class CommandCenter extends JavaPlugin implements CommandExecutor {
         getCommand("itemsgui").setExecutor(this); // Register the /itemsgui command
         getCommand("slayers").setExecutor(this);
         getCommand("worldgen").setExecutor(this);
+        getCommand("statstest").setExecutor(this);
 
         zombieSpawner = new ZombieSpawner(this); // Pass the instance of JavaPlugin
         getServer().getPluginManager().registerEvents(zombieSpawner, this); // Register ZombieSpawner as a listener
@@ -115,9 +115,29 @@ public class CommandCenter extends JavaPlugin implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 itemsGui.openItemsGui(player);
+            } else if (command.getName().equalsIgnoreCase("statstest")) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    player.sendMessage("RAW STAT OUTPUT");
+                    player.sendMessage(ChatColor.RED + "Health: " + String.valueOf(playerStats.getAttributeValue(Stats.Attribute.HEALTH)));
+                }
+            } else if (command.getName().equalsIgnoreCase("worldtest")) {
+                WorldCreator wc = new WorldCreator("neu");
+                Player s = (Player) sender;
+                Location p = s.getLocation();
+                World w = p.getWorld();
+
+
+                wc.environment(World.Environment.NORMAL);
+                wc.type(WorldType.NORMAL);
+
+                System.out.println("a.1 coretask running...");
+                w = Bukkit.createWorld(wc);
+                System.out.println("a.1 coretask completed sucessfully...");
+
+                return true;
             }
-            return true;
         }
-        return false;
+        return true;
     }
 }

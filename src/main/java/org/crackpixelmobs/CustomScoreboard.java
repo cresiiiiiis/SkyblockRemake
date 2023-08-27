@@ -1,5 +1,6 @@
 package org.crackpixelmobs;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -52,7 +53,7 @@ public class CustomScoreboard {
             dateFormat.format(new Date(System.currentTimeMillis()));
 
             Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
-            Objective obj = board.registerNewObjective("test", "",  ChatColor.YELLOW + "" + ChatColor.BOLD +  "SKYBLOCK");
+            Objective obj = board.registerNewObjective("test", "",  ChatColor.YELLOW + "" + ChatColor.BOLD + "SKYBLOCK" );
             obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
             Score idSkyblock = obj.getScore(ChatColor.GRAY + date + ChatColor.GRAY + " mini01A");
@@ -65,9 +66,9 @@ public class CustomScoreboard {
             Score locSkyblock = obj.getScore(ChatColor.GRAY + "⏣" + ChatColor.AQUA + " Village");
             locSkyblock.setScore(9);
             obj.getScore(ChatColor.DARK_GREEN + "").setScore(8);
-            Score coinSkyblock = obj.getScore(ChatColor.WHITE + "Purse:" + ChatColor.YELLOW + " 100");
+            Score coinSkyblock = obj.getScore(ChatColor.WHITE + "Purse:" + ChatColor.GOLD + PlaceholderAPI.setPlaceholders (player, " %vault_eco_balance_commas% "));
             coinSkyblock.setScore(7);
-            Score bitSkyblock = obj.getScore(ChatColor.WHITE + "Bits:" + ChatColor.AQUA + " 100");
+            Score bitSkyblock = obj.getScore(ChatColor.WHITE + "Bits:" + ChatColor.AQUA + " 0");
             bitSkyblock.setScore(6);
             obj.getScore(ChatColor.BLACK + "").setScore(5);
             Score taskSkyblock = obj.getScore(ChatColor.WHITE + "Objective");
