@@ -1,0 +1,18 @@
+name: CrackpixelSBCore
+version: '${project.version}'
+main: org.crackpixelmobs.CommandCenter
+api-version: '1.18'
+commands:
+  cpm:
+    description: Spawn custom mobs
+    usage: /cpm <mob name>
+  cpa:
+    description: Modify player attributes
+    usage: /cpa <attribute> <amount>
+  itemsgui:
+    description: /itemsgui
+  slayers:
+    description: Attempt of Slayer Remake from hypixel.net
+  worldgen:
+    description: Test
+    usage: /<command>
