@@ -57,7 +57,6 @@ public class CommandCenter extends JavaPlugin implements CommandExecutor {
 
     @Override
     public void onDisable() {
-        // Perform cleanup if needed...
     }
 
     private void setGameRules() {
